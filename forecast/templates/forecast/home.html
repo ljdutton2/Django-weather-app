@@ -1,0 +1,33 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'forecast/bootstrap.min.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <h1>The weather today in San Francisco is {{description}} and {{temp}} degrees celsius </h1>
+        
+        <h2 center>What is your mood today?</h2>
+        <i class="large material-icons" >sentiment_very_satisfied </i></label>
+        <i class="large material-icons">sentiment_satisfied </i>
+        <i class="large material-icons">sentiment_neutral </i>
+        <i class="large material-icons">sentiment_dissatisfied </i>
+        <i class="large material-icons">sentiment_very_dissatisfied </i>
+        <label for="mood">Mood</label>
+        <form method="post" action="submit">
+            {% csrf_token %}
+             {{ form.as_p }}
+        <input type="text" id="mood" name="mood">
+            <button type="submit" value="submit"> Submit </button>
+        </form>
+    
+
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    
+</body>
+</html>
