@@ -36,10 +36,8 @@ class MoodView(View):
     model = Mood
     def post(self,request):
         form = MoodForm(request.POST)
-        if form.is_valid():
-            added = form.save()
-            added.save()
-            print(added)
-        print("lllllllllll")
+        added = form.save(commit=False)
+        added.save()
+      
         return render(request, 'forecast/thank-you.html')
         
